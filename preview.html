@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>YOUR NAME — Sales & Creative</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --cream: #f6f1e8;
+      --dark: #171614;
+      --brown: #665344;
+      --gold: #b68a52;
+      --light: #fffdf9;
+      --muted: #80786e;
+      --border: rgba(23, 22, 20, 0.12);
+      --max-width: 1200px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 50px));
+      margin: auto;
+    }
+
+    /* ================= NAVBAR ================= */
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(246, 241, 232, 0.9);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-container {
+      height: 75px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: "Playfair Display", serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 0;
+      height: 1px;
+      background: var(--dark);
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* ================= HERO ================= */
+
+    .hero {
+      min-height: 100vh;
+      padding-top: 75px;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 0.9fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: 0.72rem;
+      color: var(--brown);
+      font-weight: 700;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(3.5rem, 7vw, 7rem);
+      line-height: 0.95;
+      font-weight: 500;
+      letter-spacing: -0.05em;
+    }
+
+    .hero h1 em {
+      color: var(--gold);
+    }
+
+    .hero-description {
+      max-width: 570px;
+      margin-top: 30px;
+      color: var(--brown);
+      font-size: 1.05rem;
+    }
+
+    .hero-buttons {
+      margin-top: 35px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      padding: 13px 22px;
+      border: 1px solid var(--dark);
+      font-size: 0.85rem;
+      transition: 0.25s;
+    }
+
+    .button:hover {
+      background: var(--dark);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .button.dark {
+      background: var(--dark);
+      color: white;
+    }
+
+    .button.dark:hover {
+      background: transparent;
+      color: var(--dark);
+    }
+
+    .hero-image {
+      position: relative;
+    }
+
+    .hero-image img {
+      height: 650px;
+      object-fit: cover;
+    }
+
+    .image-caption {
+      position: absolute;
+      bottom: -20px;
+      left: -30px;
+      background: var(--light);
+      padding: 18px 25px;
+      box-shadow: 0 15px 40px rgba(0,0,0,.08);
+      font-size: 0.8rem;
+    }
+
+    /* ================= GENERAL ================= */
+
+    section {
+      padding: 120px 0;
+    }
+
+    .section-header {
+      margin-bottom: 55px;
+    }
+
+    .section-number {
+      font-size: 0.7rem;
+      color: var(--gold);
+      letter-spacing: 0.15em;
+      font-weight: 700;
+    }
+
+    .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.6rem, 5vw, 4.5rem);
+      line-height: 1;
+      font-weight: 500;
+      margin-top: 10px;
+    }
+
+    .section-description {
+      max-width: 600px;
+      color: var(--muted);
+      margin-top: 15px;
+    }
+
+    /* ================= ABOUT ================= */
+
+    .about {
+      background: var(--light);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 100px;
+      align-items: start;
+    }
+
+    .about-text {
+      font-family: "Playfair Display", serif;
+      font-size: 1.8rem;
+      line-height: 1.4;
+    }
+
+    .about-text em {
+      color: var(--gold);
+    }
+
+    .about-details p {
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    /* ================= EXPERIENCE ================= */
+
+    .experience-list {
+      border-top: 1px solid var(--border);
+    }
+
+    .experience-item {
+      display: grid;
+      grid-template-columns: 150px 1fr 200px;
+      gap: 30px;
+      padding: 35px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+      transition: 0.25s;
+    }
+
+    .experience-item:hover {
+      padding-left: 15px;
+    }
+
+    .experience-date {
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .experience-role {
+      font-family: "Playfair Display", serif;
+      font-size: 1.7rem;
+    }
+
+    .experience-company {
+      color: var(--gold);
+      margin-top: 5px;
+      font-size: 0.9rem;
+    }
+
+    .experience-description {
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    /* ================= TRAVEL ================= */
+
+    .travel {
+      background: #e9e0d3;
+    }
+
+    .travel-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .travel-card {
+      position: relative;
+      overflow: hidden;
+      height: 500px;
+    }
+
+    .travel-card img {
+      height: 100%;
+      object-fit: cover;
+      transition: 0.5s;
+    }
+
+    .travel-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .travel-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: flex-end;
+      padding: 30px;
+      background: linear-gradient(
+        transparent 45%,
+        rgba(0,0,0,.7)
+      );
+      color: white;
+    }
+
+    .travel-overlay h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 2rem;
+    }
+
+    .travel-overlay span {
+      font-size: 0.75rem;
+      opacity: .8;
+    }
+
+    /* ================= PODCAST ================= */
+
+    .podcast-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .podcast-card {
+      border: 1px solid var(--border);
+      padding: 35px;
+      background: var(--light);
+      transition: 0.25s;
+    }
+
+    .podcast-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 50px rgba(0,0,0,.07);
+    }
+
+    .podcast-icon {
+      width: 55px;
+      height: 55px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--dark);
+      color: white;
+      margin-bottom: 30px;
+    }
+
+    .podcast-card h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    .podcast-card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .podcast-link {
+      display: inline-block;
+      margin-top: 20px;
+      font-size: 0.8rem;
+      border-bottom: 1px solid var(--dark);
+      padding-bottom: 3px;
+    }
+
+    /* ================= MUSIC ================= */
+
+    .music {
+      background: var(--dark);
+      color: white;
+    }
+
+    .music .section-number {
+      color: #d0a96c;
+    }
+
+    .music-intro {
+      color: #b7b2aa;
+      max-width: 600px;
+      margin-top: 15px;
+    }
+
+    .music-content {
+      margin-top: 60px;
+      display: grid;
+      grid-template-columns: 0.7fr 1.3fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .album-art {
+      aspect-ratio: 1;
+      background:
+        linear-gradient(
+          135deg,
+          #b68a52,
+          #4e3b2b
+        );
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .album-art::before {
+      content: "♪";
+      font-size: 10rem;
+      font-family: "Playfair Display", serif;
+      opacity: 0.15;
+    }
+
+    .album-name {
+      position: absolute;
+      bottom: 25px;
+      left: 25px;
+      font-family: "Playfair Display", serif;
+      font-size: 1.5rem;
+    }
+
+    .track {
+      border-top: 1px solid rgba(255,255,255,.15);
+      padding: 22px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .track:last-child {
+      border-bottom: 1px solid rgba(255,255,255,.15);
+    }
+
+    .track-info strong {
+      font-family: "Playfair Display", serif;
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+
+    .track-info small {
+      display: block;
+      color: #99938b;
+      margin-top: 3px;
+    }
+
+    .play-button {
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(255,255,255,.3);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+    }
+
+    /* ================= CONTACT ================= */
+
+    .contact {
+      text-align: center;
+      padding: 150px 0;
+    }
+
+    .contact h2 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(3rem, 7vw, 6rem);
+      line-height: 1;
+      font-weight: 500;
+    }
+
+    .contact h2 em {
+      color: var(--gold);
+    }
+
+    .contact p {
+      max-width: 500px;
+      margin: 25px auto;
+      color: var(--muted);
+    }
+
+    .social-links {
+      margin-top: 35px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .social {
+      padding: 12px 20px;
+      border: 1px solid var(--border);
+      font-size: 0.85rem;
+      transition: .25s;
+    }
+
+    .social:hover {
+      background: var(--dark);
+      color: white;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      background: var(--dark);
+      color: #aaa49b;
+      padding: 30px 0;
+      font-size: 0.75rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media (max-width: 850px) {
+
+      .container {
+        width: calc(100% - 30px);
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 120px;
+        padding-bottom: 80px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+
+      .hero-image img {
+        height: 500px;
+      }
+
+      .image-caption {
+        left: 15px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .experience-item {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .travel-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .travel-card {
+        height: 450px;
+      }
+
+      .podcast-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .music-content {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 80px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= NAVIGATION ================= -->
+
+  <nav>
+    <div class="container nav-container">
+
+      <a href="#" class="logo">
+        YOUR NAME
+      </a>
+
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#travel">Travel</a>
+        <a href="#music">Music</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+    </div>
+  </nav>
+
+
+  <!-- ================= HERO ================= -->
+
+  <section class="hero">
+
+    <div class="container hero-grid">
+
+      <div>
+
+        <div class="eyebrow">
+          Sales • Travel • Creativity
+        </div>
+
+        <h1>
+          Selling ideas.<br>
+          Creating <em>stories.</em>
+        </h1>
+
+        <p class="hero-description">
+          I'm YOUR NAME — a sales professional who loves connecting
+          with people, discovering new places, listening to great
+          conversations, and making music.
+        </p>
+
+        <div class="hero-buttons">
+
+          <a href="#experience" class="button dark">
+            My Experience
+          </a>
+
+          <a href="#contact" class="button">
+            Let's Connect
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="hero-image">
+
+        <!-- Replace this image -->
+        <img
+          src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=85"
+          alt="Portrait"
+        />
+
+        <div class="image-caption">
+          Always curious. Always exploring.
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= ABOUT ================= -->
+
+  <section class="about" id="about">
+
+    <div class="container about-grid">
+
+      <div class="about-text">
+
+        I believe the best opportunities
+        start with a <em>conversation.</em>
+
+      </div>
+
+      <div class="about-details">
+
+        <p>
+          My background is in sales, where I've learned how to
+          communicate with different people, understand what they
+          need, and build relationships that last.
+        </p>
+
+        <p>
+          Outside of work, you'll usually find me planning my next
+          trip, listening to a podcast, discovering new music, or
+          working on something creative.
+        </p>
+
+        <p>
+          I enjoy meeting people from different backgrounds and
+          learning from the experiences they have to share.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= EXPERIENCE ================= -->
+
+  <section id="experience">
+
+    <div class="container">
+
+      <div class="section-header">
+
+        <div class="section-number">
+          01 — EXPERIENCE
+        </div>
+
+        <h2 class="section-title">
+          What I do
+        </h2>
+
+        <p class="section-description">
+          A little about my professional journey and experience
+          working with customers, clients, and teams.
+        </p>
+
+      </div>
+
+
+      <div class="experience-list">
+
+        <div class="experience-item">
+
+          <div class="experience-date">
+            2024 — Present
+          </div>
+
+          <div>
+            <div class="experience-role">
+              Sales Representative
+            </div>
+
+            <div class="experience-company">
+              COMPANY NAME
+            </div>
+          </div>
+
+          <div class="experience-description">
+            Building client relationships, understanding customer
+            needs, presenting solutions, and driving sales.
+          </div>
+
+        </div>
+
+
+        <div class="experience-item">
+
+          <div class="experience-date">
+            2022 — 2024
+          </div>
+
+          <div>
+            <div class="experience-role">
+              Sales Associate
+            </div>
+
+            <div class="experience-company">
+              COMPANY NAME
+            </div>
+          </div>
+
+          <div class="experience-description">
+            Delivered customer-focused service while helping
+            customers find products and solutions that fit their needs.
+          </div>
+
+        </div>
+
+
+        <div class="experience-item">
+
+          <div class="experience-date">
+            Earlier
+          </div>
+
+          <div>
+            <div class="experience-role">
+              Customer Experience
+            </div>
+
+            <div class="experience-company">
+              COMPANY NAME
+            </div>
+          </div>
+
+          <div class="experience-description">
+            Developed communication, problem-solving, and
+            relationship-building skills.
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= TRAVEL ================= -->
+
+  <section class="travel" id="travel">
+
+    <div class="container">
+
+      <div class="section-header">
+
+        <div class="section-number">
+          02 — TRAVEL
+        </div>
+
+        <h2 class="section-title">
+          Somewhere out there.
+        </h2>
+
+        <p class="section-description">
+          Traveling gives me a chance to step outside my comfort
+          zone, experience different cultures, and collect stories
+          along the way.
+        </p>
+
+      </div>
+
+
+      <div class="travel-grid">
+
+        <div class="travel-card">
+
+          <img
+            src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=900&q=80"
+            alt="Paris"
+          />
+
+          <div class="travel-overlay">
+            <div>
+              <span>FRANCE</span>
+              <h3>Paris</h3>
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="travel-card">
+
+          <img
+            src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=900&q=80"
+            alt="Japan"
+          />
+
+          <div class="travel-overlay">
+            <div>
+              <span>JAPAN</span>
+              <h3>Kyoto</h3>
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="travel-card">
+
+          <img
+            src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=900&q=80"
+            alt="Bali"
+          />
+
+          <div class="travel-overlay">
+            <div>
+              <span>INDONESIA</span>
+              <h3>Bali</h3>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= PODCASTS ================= -->
+
+  <section id="podcasts">
+
+    <div class="container">
+
+      <div class="section-header">
+
+        <div class="section-number">
+          03 — PODCASTS
+        </div>
+
+        <h2 class="section-title">
+          Things I'm listening to.
+        </h2>
+
+        <p class="section-description">
+          Podcasts are one of my favorite ways to discover new
+          ideas, perspectives, and stories.
+        </p>
+
+      </div>
+
+
+      <div class="podcast-grid">
+
+        <div class="podcast-card">
+
+          <div class="podcast-icon">
+            🎙
+          </div>
+
+          <h3>
+            Favorite Podcast
+          </h3>
+
+          <p>
+            Add a short description of why she likes this podcast
+            and what she gets out of listening to it.
+          </p>
+
+          <a
+            href="https://open.spotify.com/"
+            target="_blank"
+            class="podcast-link"
+          >
+            Listen on Spotify →
+          </a>
+
+        </div>
+
+
+        <div class="podcast-card">
+
+          <div class="podcast-icon">
+            🎧
+          </div>
+
+          <h3>
+            Another Favorite
+          </h3>
+
+          <p>
+            Talk about the topics that interest her — business,
+            culture, personal growth, music, travel, or anything else.
+          </p>
+
+          <a
+            href="https://www.youtube.com/"
+            target="_blank"
+            class="podcast-link"
+          >
+            Listen on YouTube →
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= MUSIC ================= -->
+
+  <section class="music" id="music">
+
+    <div class="container">
+
+      <div class="section-header">
+
+        <div class="section-number">
+          04 — MUSIC
+        </div>
+
+        <h2 class="section-title">
+          My creative side.
+        </h2>
+
+        <p class="music-intro">
+          When I'm not working, I love creating music.
+          It's my way of experimenting, expressing ideas,
+          and having fun.
+        </p>
+
+      </div>
+
+
+      <div class="music-content">
+
+        <div class="album-art">
+
+          <div class="album-name">
+            YOUR MUSIC
+          </div>
+
+        </div>
+
+
+        <div>
+
+          <div class="track">
+
+            <div class="track-info">
+
+              <strong>
+                Track One
+              </strong>
+
+              <small>
+                03:42
+              </small>
+
+            </div>
+
+            <a
+              href="#"
+              class="play-button"
+            >
+              ▶
+            </a>
+
+          </div>
+
+
+          <div class="track">
+
+            <div class="track-info">
+
+              <strong>
+                Track Two
+              </strong>
+
+              <small>
+                04:18
+              </small>
+
+            </div>
+
+            <a
+              href="#"
+              class="play-button"
+            >
+              ▶
+            </a>
+
+          </div>
+
+
+          <div class="track">
+
+            <div class="track-info">
+
+              <strong>
+                Track Three
+              </strong>
+
+              <small>
+                02:57
+              </small>
+
+            </div>
+
+            <a
+              href="#"
+              class="play-button"
+            >
+              ▶
+            </a>
+
+          </div>
+
+
+          <a
+            href="https://open.spotify.com/"
+            target="_blank"
+            class="button"
+            style="display:inline-block; margin-top:30px; border-color:white;"
+          >
+            Listen to my music →
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= CONTACT ================= -->
+
+  <section class="contact" id="contact">
+
+    <div class="container">
+
+      <div class="section-number">
+        05 — CONNECT
+      </div>
+
+      <h2>
+        Let's start a <em>conversation.</em>
+      </h2>
+
+      <p>
+        Whether it's business, travel, music, or just a good
+        conversation — I'd love to hear from you.
+      </p>
+
+
+      <div class="social-links">
+
+        <a
+          href="https://www.linkedin.com/"
+          target="_blank"
+          class="social"
+        >
+          LinkedIn
+        </a>
+
+        <a
+          href="https://www.instagram.com/"
+          target="_blank"
+          class="social"
+        >
+          Instagram
+        </a>
+
+        <a
+          href="https://open.spotify.com/"
+          target="_blank"
+          class="social"
+        >
+          Spotify
+        </a>
+
+        <a
+          href="https://www.youtube.com/"
+          target="_blank"
+          class="social"
+        >
+          YouTube
+        </a>
+
+        <a
+          href="mailto:YOUR_EMAIL@example.com"
+          class="social"
+        >
+          Email
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+
+    <div class="container footer-inner">
+
+      <span>
+        © 2026 YOUR NAME
+      </span>
+
+      <span>
+        Sales • Travel • Creativity
+      </span>
+
+    </div>
+
+  </footer>
+
+</body>
+</html>
